@@ -1,5 +1,6 @@
 const obs_low = "ATENTE-SE! - Os índices ligeiramente abaixo de 18.5 não são saudáveis segundo a OMS (Organização Mundial da Saúde), entretanto, você pode apresentar um biotipo ligeiramente fora do índice e ser saudável. Fique atento!"
-const obs_very_low = "ATENTE-SE! Você está muito abaixo do peso recomendável. É importante verificar se não há alguma patologia por trás do peso baixo, principalmente se o emagrecimento aconteceu de maneira repentina. Deficiências nutricionais, distúrbios alimentares, como anorexia, consumo excessivo de álcool e drogas, além do tabagismo, podem estar associados ao baixo peso. Tal condição pode provocar sintomas fisiológicas perceptíveis, como unhas fracas e quebradiças, irritabilidade, dores de cabeça, dor nas articulações, falta de concentração, entre outros sinais. Procure um médico e cuide-se!"
+const obs_very_low = "ATENTE-SE! Você está muito abaixo do peso recomendável. É importante verificar se não há alguma patologia por trás do peso baixo, principalmente se o emagrecimento aconteceu de maneira repentina. Procure um médico e cuide-se!"
+
 const info = {
 
     "magrezagrave" : {
@@ -33,7 +34,7 @@ const info = {
 
     "sobrepeso" : {
         "diagnostic" : "Sobrepeso",
-        "description": "Não precisa se desesperar! Se o IMC estiver pouco acima de 25, não é preocupante. Há pessoas que seu peso normal passa um pouco do índice do IMC, no entanto, recomendamos sempre ter uma consulta com nutricionista para entender seu caso e manter-te mais saudável possivel. Uma dieta com um pouco menos de calorias ou um pouco mais de exercícios na rotina pode resolver a situação, mas de qualquer forma é importante rever hábitos e buscar ajuda antes de, por uma série de fatores, entrar na faixa da obesidade pra valer.",
+        "description": "Não precisa se desesperar! Se o IMC estiver pouco acima de 25, não é preocupante. Há pessoas que seu peso normal passa um pouco do índice do IMC, no entanto, recomendamos sempre ter uma consulta com nutricionista para entender seu caso e manter-te mais saudável possivel.",
         "risk": "Risco aumentado",
         "obs": ""
     }, 

@@ -43,17 +43,15 @@ export default function Result ( {route}: any ) {
 
 
   async function handleNew () {
- 
-
-      var saved =  0
-
       try {
 
         const response = await AsyncStorage.getItem('@savedata:historic') // get data from colection
         const previosData = response === null || undefined ? '' : JSON.parse(response);
-      
+
+        const saved = previosData ? parseInt(previosData[0]['saved']) + 1 : 0
+
         const newData = {
-          id: String(uuid.v4()),
+          id: uuid.v4(),
           date,
           saved,
           ...route.params.data
@@ -68,25 +66,21 @@ export default function Result ( {route}: any ) {
           showToast("Registro adicionado!", "success")
 
         } else if (date.day === previosData[0]['date']['day']) {
+            const listaPronta = [newData, ...previosData]
+            listaPronta.splice(1, 1)
 
-          //saved = parseInt(previosData[0]['saved']) + 1
-          const listaPronta = [newData, ...previosData]
-          listaPronta.splice(1, 1)
+            console.log(listaPronta)
+            console.log('add substituindo')
+            await AsyncStorage.setItem('@savedata:historic', JSON.stringify(listaPronta))
+    
 
-          console.log(listaPronta)
-          console.log('add substituindo')
-          await AsyncStorage.setItem('@savedata:historic', JSON.stringify(listaPronta))
-  
-
-          setNotSaved(false)
-          showToast("Registro adicionado!", "success")
+            setNotSaved(false)
+            showToast("Registro adicionado!", "success")
   
         } else {
-            //saved = parseInt(previosData[0]['saved']) + 1
-  
             const listaPronta = [newData, ...previosData]
   
-            console.log('add normal')
+            console.log(listaPronta)
             await AsyncStorage.setItem('@savedata:historic', JSON.stringify(listaPronta))
     
             setNotSaved(false)

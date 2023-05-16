@@ -2,10 +2,15 @@
   "expo": {
     "name": "IMC Calculadora",
     "slug": "imccalculadora",
-    "version": "1.0.18",
+    "version": "1.0.20",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#e6e6e6"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -18,10 +23,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#e6e6e6"
       },
       "package": "com.oliveirafocs.imccalculadora",
-      "versionCode": 18
+      "versionCode": 20
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"
@@ -32,14 +37,7 @@
       }
     },
     "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "useFrameworks": "static"
-          }
-        }
-      ]
+	    "expo-build-properties"
     ]
   },
   "react-native-google-mobile-ads": {

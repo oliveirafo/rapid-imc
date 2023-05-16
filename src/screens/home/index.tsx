@@ -97,14 +97,11 @@ export default function Home (): JSX.Element {
   }
 
   function calcularImc(){
-    unsubscribeAd()
-
     if ( (pesoValue.length > 0) && (alturaValue.length > 0) ) {
       try {
 
         setCarregando( 1 )
         
-
         var tempPeso = parseFloat(pesoValue)
         var tempAltura = parseFloat(alturaValue)
         var tempResult= (tempPeso / ( tempAltura * tempAltura)) * 10000
@@ -125,10 +122,7 @@ export default function Home (): JSX.Element {
           gender: gender,
         }
 
-
         navigation.navigate('resultado', {data} )
-
-        //navigation.navigate( 'resultado', {data} )
 
       } catch {
         Alert.alert('Erro', 'Falha ao calcular, tente novamente!')
@@ -206,15 +200,16 @@ export default function Home (): JSX.Element {
     }
   };
 
+  async function fetchData () {
+    const response = await AsyncStorage.getItem('@savedata:historic')
+    const prevData = [null, '', undefined].includes(response) ? false : true 
+    setItem(prevData)
+  };
+
 
   useFocusEffect(
     useCallback(() => {
-      async function fetchData () {
-        const response = await AsyncStorage.getItem('@savedata:historic')
-        const prevData = [null, '', undefined].includes(response) ? false : true 
-        setItem(prevData)
-      };
-  
+      unsubscribeAd()
       fetchData();
       //console.log(isVisible)
     }, [])
@@ -270,7 +265,7 @@ export default function Home (): JSX.Element {
             keyboardType='numeric'
             maxLength={3}
             onChangeText={ onChangeAltura }
-            value={alturaValue}
+            defaultValue={alturaValue}
             
           />
 
@@ -303,7 +298,7 @@ export default function Home (): JSX.Element {
               keyboardType='numeric'
               maxLength={5}
               onChangeText={ onChangePeso }
-              value={ pesoValue }
+              defaultValue={ pesoValue }
             />
 
             <C.ViewSlide>

@@ -6,6 +6,7 @@ import Historic from '../screens/historic';
 import ModalConfirm from '../screens/modalConfirm';
 import Chart from '../screens/charts';
 import Result from '../screens/result';
+
 import { Banner } from '../components/pubBanner';
 
 
@@ -18,8 +19,8 @@ const AppRoutes = () => {
       screenOptions={{
           headerTitleAlign: 'center',
           headerStyle: { backgroundColor: '#e6e6e6' },
-          gestureDirection: 'horizontal',
-          gestureEnabled: true,
+          //gestureDirection: 'horizontal',
+          //gestureEnabled: true,
           animation: 'slide_from_right',
       }}
     >    
@@ -74,9 +75,7 @@ const AppRoutes = () => {
           }} 
         />
 
-        {
-          !__DEV__ && <Banner />
-        }
+      
     </Stack.Navigator>
   )
 };
